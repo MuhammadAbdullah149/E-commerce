@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Exclusive/sign-up</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+                integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+        <div id="navbar">
+                <h3>Exclusive</h3>
+                <div class="search">
+                        <input type="text" class="searchinput" placeholder="What are you looking for?">
+                        <button class="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="bar">
+                        <a href="index.html">Home</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="about.html">About</a>
+                        <a href="login.html">Sign In</a>
+                </div>
+        </div>
+
+        <div class="allprod">
+                <div class="categories">
+                        <h1>HOME</h1>
+                        <div class="cate-div home"></div>
+                </div>
+                <div class="categories">
+                        <h1>BOOKS</h1>
+                        <div class="cate-div books"></div>
+                </div>
+                <div class="categories">
+                        <h1>FASHION</h1>
+                        <div class="cate-div fashion"></div>
+                </div>
+                <div class="categories">
+                        <h1>WATCH</h1>
+                        <div class="cate-div watch"></div>
+                </div>
+                <div class="categories">
+                        <h1>COMPUTER</h1>
+                        <div class="cate-div computer"></div>
+                </div>
+                <div class="categories">
+                        <h1>MOBILE</h1>
+                        <div class="cate-div mobile"></div>
+                </div>
+                <div class="categories">
+                        <h1>SPORTS</h1>
+                        <div class="cate-div sports"></div>
+                </div>
+                <div class="categories">
+                        <h1>TOYS</h1>
+                        <div class="cate-div toy"></div>
+                </div>
+                <div class="categories">
+                        <h1>GROCERIES</h1>
+                        <div class="cate-div groceries"></div>
+                </div>
+                <div class="categories">
+                        <h1>BEAUTY</h1>
+                        <div class="cate-div beauty"></div>
+                </div>
+        </div>
+                
+        <footer>
+                <div class="foot-panel">
+
+                        <div class="one">
+
+                                <h1>Exclusive</h1>
+
+                                <a href="#">Subscribe</a>
+
+                                <a>Get 10% OFF on your first order</a>
+
+                                <div class="email">
+                                        <input type="text" placeholder="enter your email" name="" id="">
+                                        <i class="fa-regular fa-paper-plane"></i>
+                                </div>
+
+                        </div>
+
+                        <div class="two">
+                                <h2>Support</h2>
+                                <address>111 Bijoy sarani, Dhaka,<br /> DH 1515, Pakistan</address>
+                                <a href="#">exclusive@gmail.com</a>
+                                <a href="tel:+923130479264">+923130479264</a>
+                        </div>
+
+                        <div class="three">
+                                <h2>Account</h2>
+                                <a href="#">My Account</a>
+                                <a href="login.html">Login / Register</a>
+                                <a href="#">Cart</a>
+                                <a href="#">Wish list</a>
+                                <a href="#">Shop</a>
+                        </div>
+
+                        <div class="four">
+                                <h2>Quick Line</h2>
+                                <a href="#">Privacy Policy </a>
+                                <a href="#">Terms Of Use</a>
+                                <a href="#">FAQ</a>
+                                <a href="#">Contact</a>
+                        </div>
+
+                        <div class="five">
+
+                                <h2>Download the App</h2>
+                                <p>Save 3$ with app new User only</p>
+                                <div class="google">
+                                </div>
+                        </div>
+
+                </div>
+
+                <div class="foot-panel-2">
+                        <i class="fa-regular fa-copyright"></i>
+                        <pre>  Copyright rimel 2022. All right reserved </pre>
+                </div>
+
+        </footer>
+
+        <script src="products_100_matched.js"></script>
+        <script>
+                let allproducts = products
+                
+
+                let books = document.querySelector(".books")
+                let fashion = document.querySelector(".fashion")
+                let computer = document.querySelector(".computer")
+                let mobile = document.querySelector(".mobile")
+                let watch = document.querySelector(".watch")
+                let beauty = document.querySelector(".beauty")
+                let toy = document.querySelector(".toy")
+                let sports = document.querySelector(".sports")
+                let groceries = document.querySelector(".groceries")
+                let home = document.querySelector(".home")
+                
+               
+                allproducts.forEach((prod) => {
+                        let category = prod.category
+                        // console.log(category);
+                        let name = prod.name
+                        let price = prod.price
+                        let image = prod.image
+                        let sale = prod.sale
+
+                        if(category == "Home"){
+                                // console.log(category);
+                                let produc = `<div class="allproduct">
+                                    <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                                    <h2 class="name">${name}</h2>
+                                    <div class="prize">${price}</div>
+                                    <button class="wish fa-regular fa-heart"></button></div>`
+                                home.insertAdjacentHTML("beforeend", produc);
+
+                                
+                        }
+                        else if(category == "Sports"){
+                                // console.log(category);
+                                let produc = `<div class="allproduct">
+                                    <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                                    <h2 class="name">${name}</h2>
+                                    <div class="prize">${price}</div>
+                                    <button class="wish fa-regular fa-heart"></button></div>`
+                                sports.insertAdjacentHTML("beforeend", produc);
+ 
+                        }
+                        else if(category == "Beauty"){
+                                // console.log("b"); 
+                                let produc = `<div class="allproduct">
+                                    <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                                    <h2 class="name">${name}</h2>
+                                    <div class="prize">${price}</div>
+                                    <button class="wish fa-regular fa-heart"></button></div>`
+                                beauty.insertAdjacentHTML("beforeend", produc);
+                        }
+                        else if(category == "Computer"){
+                                // console.log("c"); 
+                                let produc = `<div class="allproduct">
+                                    <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                                    <h2 class="name">${name}</h2>
+                                    <div class="prize">${price}</div>
+                                    <button class="wish fa-regular fa-heart"></button></div>`
+                                computer.insertAdjacentHTML("beforeend", produc);
+                        }
+                        else if(category == "Mobile"){
+                                // console.log("m"); 
+                                let produc = `<div class="allproduct">
+                                    <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                                    <h2 class="name">${name}</h2>
+                                    <div class="prize">${price}</div>
+                                    <button class="wish fa-regular fa-heart"></button></div>`
+                                mobile.insertAdjacentHTML("beforeend", produc);
+                        }
+                        else if(category == "Watches"){
+                                // console.log("w");
+                                let produc = `<div class="allproduct">
+                                    <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                                    <h2 class="name">${name}</h2>
+                                    <div class="prize">${price}</div>
+                                    <button class="wish fa-regular fa-heart"></button></div>`
+                                watch.insertAdjacentHTML("beforeend", produc); 
+                        }
+                        else if(category == "Groceries"){
+                                // console.log("g"); 
+                                let produc = `<div class="allproduct">
+                                    <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                                    <h2 class="name">${name}</h2>
+                                    <div class="prize">${price}</div>
+                                    <button class="wish fa-regular fa-heart"></button></div>`
+                                groceries.insertAdjacentHTML("beforeend", produc);
+                        }
+                        else if(category == "Toys"){
+                                // console.log("t"); 
+                                let produc = `<div class="allproduct">
+                                    <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                                    <h2 class="name">${name}</h2>
+                                    <div class="prize">${price}</div>
+                                    <button class="wish fa-regular fa-heart"></button></div>`
+                                toy.insertAdjacentHTML("beforeend", produc);
+                        }
+                        else if(category == "Fashion"){
+                                // console.log("f"); 
+                                let produc = `<div class="allproduct">
+                                    <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                                    <h2 class="name">${name}</h2>
+                                    <div class="prize">${price}</div>
+                                    <button class="wish fa-regular fa-heart"></button></div>`
+                                fashion.insertAdjacentHTML("beforeend", produc);
+                        }
+                        else{
+                                // console.log("b"); 
+                                let produc = `<div class="allproduct">
+                                    <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                                    <h2 class="name">${name}</h2>
+                                    <div class="prize">${price}</div>
+                                    <button class="wish fa-regular fa-heart"></button></div>`
+                                books.insertAdjacentHTML("beforeend", produc);
+                        }
+                        
+                })
+
+                let likebtn = document.querySelectorAll(".wish")
+                likebtn = Array.from(likebtn)
+                let i;
+
+                        likebtn.forEach((like) => {
+                                like.addEventListener("click", (e) => {
+                                        let ad = document.querySelectorAll(".allproduct")
+                                        ad = Array.from(ad)
+                                        i = likebtn.indexOf(e.target);
+                                        const wishes = document.createElement("div")
+                                        wishes.innerHTML =
+                                                `<li class="wishes">${ad[i].innerHTML}
+                                <button class="addcart fa-solid fa-cart-shopping"></button>
+                                <button class="delete fa-solid fa-trash" ></button>
+                         </li>`
+
+                                        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+                                        const productHTML = wishes.innerHTML;
+                                        if (!wishlist.includes(productHTML)) {
+                                                wishlist.push(productHTML);
+                                                localStorage.setItem("wishlist", JSON.stringify(wishlist));
+                                        }
+                                        window.location.href = "wishlist.html"
+                                        // localStorage.clear()
+                                });
+                        });
+                //////////////////////////////////////////////////////////////
+
+                let viewbtn = document.querySelectorAll(".view")
+                        viewbtn = Array.from(viewbtn)
+
+                        viewbtn.forEach((vu) => {
+                                vu.addEventListener("click", (e) => {
+                                        let ad = document.querySelectorAll(".allproduct")
+                                        ad = Array.from(ad)
+                                        i = viewbtn.indexOf(e.target);
+                                        detproduct = products[i]
+                                        localStorage.setItem("detproduct", JSON.stringify(detproduct))
+                                        window.location.href = 'details.html';
+                                })
+                        })
+                        
+
+
+                // let all = document.createElement("div")
+                // allproducts.forEach((prod) => {
+                //         let name = prod.name
+                //         let price = prod.price
+                //         let image = prod.image
+                //         let sale = prod.sale
+                //         let produc = `<div class="allproduct">
+                //         <div class="ad-img"   style="background-image: url(${image});" ><div class="off">-${sale}%</div></div>
+                //         <h2 class="name">${name}</h2>
+                //         <div class="prize">${price}</div>
+                //         <button class="wish fa-regular fa-heart"></button>
+                //         <button class="view fa-solid fa-eye"></button> </div>`
+                //         console.log(produc);
+                //         categories.insertAdjacentHTML("beforeend", produc);
+                // });
+
+                
+                
+        </script>
+
+</body>

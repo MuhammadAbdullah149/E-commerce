@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Exclusive/wislist</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+                integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+        <div id="navbar">
+                <h3>Exclusive</h3>
+                <div class="search">
+                        <input type="text" class="searchinput" placeholder="What are you looking for?">
+                        <button class="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+
+                <div class="bar">
+                        <a href="index.html">Home</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="about.html">About</a>
+                        <a href="login.html">Sign In</a>
+                        <a href="cart.html" class="cart">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                </div>
+        </div>
+        <div class="signup">
+                <div class="sale">
+                        <h1 class="flash">
+                                Wishlist
+                        </h1>
+                </div>
+                <ul class="wishlist">
+
+
+                </ul>
+        </div>
+        
+
+        <div style="background-image: url();"></div>
+        <footer>
+                <div class="foot-panel">
+
+                        <div class="one">
+
+                                <h1>Exclusive</h1>
+
+                                <a href="#">Subscribe</a>
+
+                                <a>Get 10% OFF on your first order</a>
+
+                                <div class="email">
+                                        <input type="text" placeholder="enter your email" name="" id="">
+                                        <i class="fa-regular fa-paper-plane"></i>
+                                </div>
+
+                        </div>
+
+                        <div class="two">
+                                <h2>Support</h2>
+                                <address>111 Bijoy sarani, Dhaka,<br /> DH 1515, Pakistan</address>
+                                <a href="#">exclusive@gmail.com</a>
+                                <a href="tel:+923130479264">+923130479264</a>
+                        </div>
+
+                        <div class="three">
+                                <h2>Account</h2>
+                                <a href="#">My Account</a>
+                                <a href="login.html">Login / Register</a>
+                                <a href="#">Cart</a>
+                                <a href="#">Wish list</a>
+                                <a href="#">Shop</a>
+                        </div>
+
+                        <div class="four">
+                                <h2>Quick Line</h2>
+                                <a href="#">Privacy Policy </a>
+                                <a href="#">Terms Of Use</a>
+                                <a href="#">FAQ</a>
+                                <a href="#">Contact</a>
+                        </div>
+
+                        <div class="five">
+
+                                <h2>Download the App</h2>
+                                <p>Save 3$ with app new User only</p>
+                                <div class="google">
+                                </div>
+                        </div>
+
+                </div>
+
+                <div class="foot-panel-2">
+                        <i class="fa-regular fa-copyright"></i>
+                        <pre>  Copyright rimel 2022. All right reserved </pre>
+                </div>
+
+        </footer>
+
+        <!-- <script src="products_100_matched.js"> </script> -->
+        <script>
+
+                const wishlistContainer = document.querySelector(".wishlist");
+                const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+                wishlist.forEach(itemHTML => {
+                        ///////////////////////////////////////////////////////////////
+
+                        wishlistContainer.insertAdjacentHTML("beforeend", itemHTML);
+                        
+                        /////delete wish item /////////////////////////////////////////
+                        let del = document.querySelectorAll(".delete")
+                        del = Array.from(del)
+                        del.forEach((de) => {de.addEventListener("click" ,(e) => {
+                                        const li = e.target.closest("li");
+                                        li.remove();
+                                        const updatedWishlist = Array.from(wishlistContainer)
+                                        localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+                                  }
+                                 )
+                        })
+                })
+
+                if (wishlistContainer === "") {
+                        window.location.href = "index.html"
+                }
+
+                let addcart = document.querySelectorAll(".addcart")
+                addcart = Array.from(addcart)
+                let i;
+                addcart.forEach((cartbtn) => {
+                        cartbtn.addEventListener("click", (e) => {
+                                i = addcart.indexOf(e.target)
+                                cartprod = Array.from(wishlistContainer.children)
+                                console.log(cartprod[i]);
+                                let detname = document.querySelectorAll(".name")
+                                let detprice = document.querySelectorAll(".prize")
+                                        
+                                newcart = document.createElement("div")
+                                newcart.innerHTML = `
+                                <div class="cartitem">
+                                <div class="productname">${detname[i].innerHTML}</div>
+                                <div class="productprice">${detprice[i].innerHTML}</div>
+                                <input type="number" class="quantity" min="1" placeholder="0">
+                                </input>
+                                <button class="delete fa-solid fa-trash" ></button>
+                                </div>
+                                `
+                                let cartlist = JSON.parse(localStorage.getItem("cartlist")) || [];
+                                const productHTML = newcart.innerHTML;
+                                if (!cartlist.includes(productHTML)) {
+                                        cartlist.push(productHTML);
+                                        localStorage.setItem("cartlist", JSON.stringify(cartlist));
+                                }
+                                window.location.href = "cart.html"
+                        })
+
+                })
+
+
+                                
+                                
+
+                                
+                                
+
+        </script>
+</body>
