@@ -1,12 +1,12 @@
 function saveTodos() {
         //timmer////////////////////////////////////////////
         const todos = { days, hours, minutes, seconds };
-        localStorage.setItem("todos", JSON.stringify(todos))
+        sessionStorage.setItem("todos", JSON.stringify(todos))
 }
 
 function loadTodos() {
         //timer/////////////////////////////////////////////////
-        const saved = JSON.parse(localStorage.getItem("todos"));
+        const saved = JSON.parse(sessionStorage.getItem("todos"));
         if (saved) {
                 days = saved.days;
                 hours = saved.hours;
